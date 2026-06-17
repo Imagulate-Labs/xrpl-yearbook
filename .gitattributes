@@ -1,0 +1,13 @@
+# Normalize line endings: store text as LF, check out as LF on every OS.
+# Kills the "LF will be replaced by CRLF" warnings for good.
+* text=auto eol=lf
+
+# Binary assets — never touch line endings.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.zip  binary
+*.pdf  binary

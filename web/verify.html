@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XRP Yearbook — Verify a Class</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="topbar topbar--solid">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_transparent.png" alt="XRP Yearbook mark" />
+      <span class="brand-word">XRP&nbsp;YEARBOOK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="page.html">Your Page</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+    </ul>
+    <span class="selftest" id="selftest">checking…</span>
+  </nav>
+
+  <main class="page-wrap">
+    <header class="vf-head">
+      <p class="eyebrow">Proof of Class</p>
+      <h1 class="vf-title">The sealed class is verifiable by anyone.</h1>
+      <p class="vf-sub">
+        Every page and every signature is a leaf. They roll up into one root that's
+        anchored on the XRP Ledger when the class seals. No trust, no middleman — the
+        math proves the Class of 2026 is authentic, complete, and unaltered.
+      </p>
+    </header>
+
+    <!-- the anchored root -->
+    <section class="vf-panel">
+      <div class="vf-stat-row">
+        <div class="vf-stat"><span id="pageCount">0</span><label>pages</label></div>
+        <div class="vf-stat"><span id="sigCount">0</span><label>signatures</label></div>
+        <div class="vf-stat"><span id="leafCount">0</span><label>leaves sealed</label></div>
+      </div>
+      <p class="vf-label">Anchored root — sealed on the ledger</p>
+      <div class="rootbox mono" id="anchoredRoot">…</div>
+      <p class="anchor-tx" id="anchorTx">…</p>
+    </section>
+
+    <!-- verify -->
+    <section class="vf-panel">
+      <p class="vf-label">The preserved class — edit anything and re-verify</p>
+      <textarea class="vf-area mono" id="classData" spellcheck="false" rows="14" aria-label="Class data (editable JSON)"></textarea>
+      <div class="vf-actions">
+        <button class="btn btn-gold btn-sm" id="verifyBtn">Verify integrity</button>
+        <button class="btn btn-ghost btn-sm" id="tamperBtn">Tamper a signature</button>
+        <button class="btn btn-ghost btn-sm" id="resetBtn">Reset</button>
+      </div>
+      <div class="banner" id="banner" style="display:none"></div>
+    </section>
+
+    <!-- inclusion proof -->
+    <section class="vf-panel">
+      <p class="vf-label">Prove a single signature is in the sealed class</p>
+      <div class="vf-actions">
+        <select class="vf-select" id="leafSelect" aria-label="Choose a signature to prove inclusion"></select>
+        <button class="btn btn-gold btn-sm" id="proveBtn">Prove inclusion</button>
+      </div>
+      <div class="proof-out" id="proofOut"></div>
+    </section>
+
+    <!-- PROOF OF NON-ASSET -->
+    <section class="vf-panel na-panel">
+      <p class="vf-label">Proof of Non-Asset — the audit, run in reverse</p>
+      <h2 class="na-title">This token is not a coin — and it's provable.</h2>
+      <p class="na-sub">
+        The same kind of engine that audits asset launches, pointed at the Yearbook token.
+        To certify, every financial vector must read <b>NONE</b> — and it only can because there's
+        exactly one soulbound membership token and nothing else.
+      </p>
+      <div class="na-rows" id="naRows"></div>
+      <div class="na-cert" id="naCert">
+        <span class="na-cert-badge">VERIFIED — not an asset</span>
+        <p>Membership, not a coin. Audited by the same engine that certifies asset launches, run in reverse. It passes only because the architecture is pure — add one vector and it turns red.</p>
+      </div>
+      <div class="vf-actions"><button type="button" class="btn btn-ghost btn-sm" id="naRunBtn">Re-run audit</button></div>
+    </section>
+
+    <p class="rm-foot">Two proofs hold up the Yearbook: the class is real (Proof of Class), and the token is not a coin (Proof of Non-Asset). Memory before mechanics — made provable.</p>
+  </main>
+
+  <footer class="foot">
+    <p class="foot-line">The strongest call to action is not <em>buy</em>. It is <em>be&nbsp;remembered</em>.</p>
+    <p class="foot-sub">XRP Yearbook · Cultural preservation first, blockchain second · Memory before mechanics</p>
+  </footer>
+
+  <script src="seal.js"></script>
+  <script src="verify.js"></script>
+</body>
+</html>

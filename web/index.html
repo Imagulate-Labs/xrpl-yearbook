@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XRP Yearbook — A timestamp of who was here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============================ HERO ============================ -->
+  <header class="hero">
+    <!-- the moving memory-flow (real Vegas photos drop in here later) -->
+    <div class="flow" id="flow" aria-hidden="true"></div>
+    <div class="flow-grade" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <nav class="topbar">
+      <div class="brand">
+        <img class="brand-mark"
+             src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_transparent.png"
+             alt="XRP Yearbook mark" />
+        <span class="brand-word">XRP&nbsp;YEARBOOK</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#sign">Sign the Ledger</a></li>
+        <li><a href="page.html">Your Page</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="verify.html">Verify</a></li>
+        <li><a href="raffle.html">Raffle</a></li>
+        <li><a href="merch.html">Merch</a></li>
+      </ul>
+      <a class="nav-cta" href="page.html">Claim your page</a>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">Class of 2026</p>
+      <h1 class="headline">A timestamp<br />of who was here.</h1>
+      <p class="subhead">
+        Create your page. Sign the people who shaped your year.<br />
+        Seal the Class of 2026 on the XRP Ledger.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#sign">Claim your page</a>
+        <a class="btn btn-ghost" href="#loop">View the Class</a>
+      </div>
+    </div>
+
+    <a class="scroll-hint" href="#sign" aria-label="Scroll to Sign the Ledger">
+      <span>Sign the Ledger</span>
+      <span class="scroll-arrow"></span>
+    </a>
+  </header>
+
+  <!-- ======================= SIGN THE LEDGER ======================= -->
+  <section class="sign" id="sign">
+    <div class="sign-head">
+      <p class="eyebrow">The loop</p>
+      <h2 class="sign-title">Sign the Ledger</h2>
+      <p class="sign-sub">
+        Leave your mark inside the X. Pick your ink and sign —
+        this is the heartbeat of the whole book.
+      </p>
+    </div>
+
+    <div class="pad-wrap">
+      <div class="pad" id="pad">
+        <img class="pad-ring"
+             src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_transparent.png"
+             alt="" aria-hidden="true" />
+        <canvas id="sigCanvas"></canvas>
+        <p class="pad-placeholder" id="padPlaceholder">— sign here —</p>
+      </div>
+
+      <div class="studio" data-studio>
+        <div class="stamp-tray" data-tray></div>
+        <div class="toolbar">
+          <div class="tb-tools">
+            <button type="button" class="tb-btn" data-tool="pen" title="Pen">✎</button>
+            <button type="button" class="tb-btn" data-tool="calligraphy" title="Calligraphy nib">✒</button>
+            <button type="button" class="tb-btn" data-tool="eraser" title="Eraser">⌫</button>
+            <button type="button" class="tb-btn" data-tool="stamps" title="Stamps">✦</button>
+            <input type="range" class="tb-size" data-size min="1.5" max="9" step="0.5" value="3.4" title="Tip thickness" aria-label="Tip thickness" />
+          </div>
+          <div class="ink-strip" data-strip></div>
+          <div class="tb-actions">
+            <button type="button" class="tb-btn" data-act="undo" title="Undo last">↶</button>
+            <button type="button" class="tb-btn" data-act="clear" title="Clear all">Clear</button>
+            <button type="button" class="btn btn-gold btn-sm" id="saveBtn">Take your mark</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="pad-note">
+        Pen, calligraphy nib, neons, golds, stamps, eraser, undo — and a thickness
+        slider for your tip. Your mark, your way; the frame keeps it a yearbook.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================== THE LOOP ========================== -->
+  <section class="loop" id="loop">
+    <div class="loop-step">
+      <span class="loop-k">Claim</span>
+      <p>Claim your page. Class of 2026 is open.</p>
+    </div>
+    <div class="loop-step">
+      <span class="loop-k">Sign</span>
+      <p>Sign the people who were there. Every signature is a real ledger event.</p>
+    </div>
+    <div class="loop-step">
+      <span class="loop-k">Seal</span>
+      <p>The class is sealed. Once sealed, it is history.</p>
+    </div>
+  </section>
+
+  <!-- ========================== FOOTER ========================== -->
+  <footer class="foot" id="foot">
+    <p class="foot-line">The strongest call to action is not <em>buy</em>. It is <em>be&nbsp;remembered</em>.</p>
+    <p class="foot-sub">XRP Yearbook · Cultural preservation first, blockchain second · Memory before mechanics</p>
+  </footer>
+
+  <script src="sigpad.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

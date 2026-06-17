@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XRP Yearbook — The Class Draw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="topbar topbar--solid">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_transparent.png" alt="XRP Yearbook mark" />
+      <span class="brand-word">XRP&nbsp;YEARBOOK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="page.html">Your Page</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+      <li><a href="verify.html">Verify</a></li>
+    </ul>
+    <span class="rf-live">● Live</span>
+  </nav>
+
+  <main class="page-wrap">
+    <header class="rf-head">
+      <p class="eyebrow">Class of 2026 · The Class Draw · Open to all of XRPL</p>
+      <h1 class="rf-title">Earn your ink. Win the cover.</h1>
+      <p class="rf-sub">Earn Ink by showing up and sharing, contribute a prize if you want, then sign in to a provably-fair draw. You don't have to be in the Yearbook — every XRPL wallet is welcome.</p>
+      <button type="button" class="btn btn-ghost btn-sm" id="howBtn">How it works ›</button>
+    </header>
+
+    <div class="rf-grid">
+      <!-- Grand prize -->
+      <section class="rf-prize">
+        <div class="rf-prize-img">
+          <img src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_Book_Artifact_Concept.png" alt="Class of 2026 sealed first edition" />
+        </div>
+        <div class="rf-prize-meta">
+          <span class="badge">Grand Prize · 1 of 1</span>
+          <h2>Sealed Cover — Class of 2026</h2>
+          <p>On-chain cover NFT + a physical first print. The face of the first sealed edition.</p>
+          <div class="rf-prize-stats">
+            <div><span id="poolInk">0</span><label>ink in the draw</label></div>
+            <div><span id="poolPeople">0</span><label>classmates in</label></div>
+            <div><span id="rfCountdown">—</span><label>draws in</label></div>
+          </div>
+          <div class="rf-sides">
+            <div class="rf-side"><b>Honor Roll Badge</b><i>top 3 Ink earners</i></div>
+            <div class="rf-side"><b>Perfect Attendance</b><i>all Class Actions done</i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Earn ink + enter -->
+      <section class="rf-enter">
+        <p class="vf-label">Earn your ink</p>
+        <div class="rf-inkbar">
+          <div class="rf-inkbar-track"><div class="rf-inkbar-fill" id="inkFill"></div></div>
+          <span class="rf-inkbar-label"><span id="yourInk">0</span> Ink · next milestone 200 · each Ink = 1 chance</span>
+        </div>
+
+        <p class="rf-group-label">Class Actions</p>
+        <div class="rf-tasks" id="rfClassTasks"></div>
+        <p class="rf-group-label">Social Actions <span>· grow the Class</span></p>
+        <div class="rf-tasks" id="rfSocialTasks"></div>
+
+        <div class="rf-xrp">
+          <div class="rf-xrp-text"><b>Rather just pitch in?</b><span>Contribute XRP for Ink — the free quests stay open either way.</span></div>
+          <div class="rf-xrp-row">
+            <select id="xrpAmount" aria-label="XRP amount to contribute">
+              <option value="5" data-ink="25">5 XRP · +25 Ink</option>
+              <option value="10" data-ink="50">10 XRP · +50 Ink</option>
+              <option value="25" data-ink="130">25 XRP · +130 Ink</option>
+              <option value="50" data-ink="275">50 XRP · +275 Ink</option>
+            </select>
+            <button type="button" class="btn btn-ghost btn-sm" id="xrpContribBtn">Contribute</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-gold" id="rfEnterBtn">Earn Ink to Join</button>
+        <p class="rf-note" id="rfNote">Claiming and signing are worth the most — showing up is the whole point.</p>
+      </section>
+    </div>
+
+    <!-- Community prize pool -->
+    <section class="rf-pool">
+      <div class="rf-pool-head">
+        <div>
+          <p class="vf-label">Community Prize Pool</p>
+          <p class="rf-pool-sub">Anyone on XRPL can add an NFT. More prizes, more winners, more collections seen.</p>
+        </div>
+        <button type="button" class="btn btn-gold btn-sm" id="contribBtn">Contribute an NFT</button>
+      </div>
+      <div class="rf-pool-grid" id="poolGrid"></div>
+    </section>
+
+    <!-- Contribution Board -->
+    <section class="rf-board">
+      <div class="rf-board-head">
+        <p class="vf-label">Contribution Board · this round</p>
+        <p class="rf-board-sub">Everything in the open — who gave, who showed up, and where you stand. No hidden hands.</p>
+      </div>
+      <div class="rf-board-grid">
+        <div class="rf-board-col">
+          <h3>Prize contributors</h3>
+          <div id="boardContributors"></div>
+        </div>
+        <div class="rf-board-col">
+          <h3>Ink standings</h3>
+          <div id="boardStandings"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Flip Ceremony -->
+    <section class="rf-ceremony">
+      <div class="rf-cer-head">
+        <p class="eyebrow">The draw</p>
+        <h2 class="rf-cer-title">The Page Flip Ceremony</h2>
+      </div>
+      <div class="rf-stage" id="rfStage"><div class="rf-stage-idle">The yearbook stays closed until the ceremony begins.</div></div>
+      <div class="rf-cer-actions">
+        <button type="button" class="btn btn-ghost btn-sm" id="rfDrawBtn">Begin the ceremony</button>
+      </div>
+      <div class="rf-seal" id="rfSeal"></div>
+    </section>
+
+    <p class="rm-foot">Ink is earned, never bought — and the Class Seal makes the draw verifiable, so nobody can rig it. A draw that can't cheat you.</p>
+  </main>
+
+  <footer class="foot">
+    <p class="foot-line">The strongest call to action is not <em>buy</em>. It is <em>be&nbsp;remembered</em>.</p>
+    <p class="foot-sub">XRP Yearbook · Cultural preservation first, blockchain second · Memory before mechanics</p>
+  </footer>
+
+  <!-- How it works -->
+  <div class="rf-modal" id="howModal" hidden>
+    <div class="rf-modal-card">
+      <button type="button" class="rf-modal-x" id="howClose" aria-label="Close">×</button>
+      <p class="eyebrow">New here? Read this first</p>
+      <h2 class="rf-modal-title">How the Class Draw works</h2>
+      <ol class="rf-stages" id="howStages"></ol>
+    </div>
+  </div>
+
+  <!-- Contribute an NFT -->
+  <div class="rf-modal" id="contribModal" hidden>
+    <div class="rf-modal-card">
+      <button type="button" class="rf-modal-x" id="contribClose" aria-label="Close">×</button>
+      <p class="eyebrow">Contribute to the pool</p>
+      <h2 class="rf-modal-title">Add an NFT to the Class Draw</h2>
+      <p class="rf-modal-sub">Any collection, any community. Your NFT becomes a prize, your collection gets seen by the whole Class, and you earn Ink for giving back.</p>
+      <label class="rf-field"><span>Collection</span><input id="cCollection" type="text" placeholder="your collection name" /></label>
+      <label class="rf-field"><span>NFT name / ID</span><input id="cName" type="text" placeholder="e.g. #128" /></label>
+      <label class="rf-field"><span>Image (optional)</span><input id="cImage" type="file" accept="image/*" /></label>
+      <div class="rf-preview" id="cPreview"></div>
+      <button type="button" class="btn btn-gold" id="contribSubmit">Add to the pool</button>
+      <p class="rf-field-note">Demo only — nothing leaves your wallet here.</p>
+    </div>
+  </div>
+
+  <script src="raffle.js"></script>
+</body>
+</html>

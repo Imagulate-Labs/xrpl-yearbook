@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XRP Yearbook — Your Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="topbar topbar--solid">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_transparent.png" alt="XRP Yearbook mark" />
+      <span class="brand-word">XRP&nbsp;YEARBOOK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#sign">Sign the Ledger</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+      <li><a href="verify.html">Verify</a></li>
+    </ul>
+    <a class="nav-cta" href="#sign-inline">Sign this page</a>
+  </nav>
+
+  <main class="page-wrap">
+    <!-- the yearbook page -->
+    <section class="profile">
+      <div class="portrait">
+        <img class="portrait-mark" src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_black.png" alt="Portrait placeholder" />
+        <span class="portrait-cap">Your photo here</span>
+      </div>
+
+      <div class="pmeta">
+        <p class="eyebrow">Class of 2026</p>
+        <h1 class="pname" id="pName">Your Name</h1>
+        <p class="phandle" id="pHandle">@yourhandle</p>
+        <div class="pbadges" id="pBadges"></div>
+        <p class="pquote" id="pQuote"></p>
+        <div class="plinks" id="pLinks"></div>
+      </div>
+    </section>
+
+    <!-- the signature wall -->
+    <section class="wallsec">
+      <div class="wall-head">
+        <h2 class="wall-title">Signed by <span id="signCount">0</span></h2>
+        <p class="wall-sub">Every name here left a real mark. Add yours.</p>
+      </div>
+      <div class="wall" id="wall"></div>
+      <div class="wall-cta">
+        <a class="btn btn-gold" href="#sign-inline" id="revealSign">Sign this page</a>
+      </div>
+    </section>
+
+    <!-- inline sign pad (revealed) -->
+    <section class="sign-inline" id="sign-inline">
+      <div class="sign-head">
+        <p class="eyebrow">Leave your mark</p>
+        <h2 class="sign-title">Sign <span id="signName">this page</span></h2>
+      </div>
+      <div class="pad" id="pagePad">
+        <img class="pad-ring" src="../XRP_Yearbook_Brand_Assets_PNG/XRP_Yearbook_SignatureX_Mark_transparent.png" alt="" aria-hidden="true" />
+        <canvas id="pageCanvas"></canvas>
+        <p class="pad-placeholder">— sign here —</p>
+      </div>
+      <div class="studio" data-studio>
+        <div class="stamp-tray" data-tray></div>
+        <div class="toolbar">
+          <div class="tb-tools">
+            <button type="button" class="tb-btn" data-tool="pen" title="Pen">✎</button>
+            <button type="button" class="tb-btn" data-tool="calligraphy" title="Calligraphy nib">✒</button>
+            <button type="button" class="tb-btn" data-tool="eraser" title="Eraser">⌫</button>
+            <button type="button" class="tb-btn" data-tool="stamps" title="Stamps">✦</button>
+            <input type="range" class="tb-size" data-size min="1.5" max="9" step="0.5" value="3.4" title="Tip thickness" aria-label="Tip thickness" />
+          </div>
+          <div class="ink-strip" data-strip></div>
+          <div class="tb-actions">
+            <button type="button" class="tb-btn" data-act="undo" title="Undo last">↶</button>
+            <button type="button" class="tb-btn" data-act="clear" title="Clear all">Clear</button>
+            <button type="button" class="btn btn-gold btn-sm" id="pageAdd">Add my signature</button>
+          </div>
+        </div>
+      </div>
+      <p class="pad-note">In the real thing, adding your signature is a live event on the XRP Ledger. Here it just lands on the wall — that's the loop.</p>
+    </section>
+  </main>
+
+  <footer class="foot" id="foot">
+    <p class="foot-line">The strongest call to action is not <em>buy</em>. It is <em>be&nbsp;remembered</em>.</p>
+    <p class="foot-sub">XRP Yearbook · Cultural preservation first, blockchain second · Memory before mechanics</p>
+  </footer>
+
+  <script src="sigpad.js"></script>
+  <script src="page.js"></script>
+</body>
+</html>

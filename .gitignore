@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment / secrets — never commit Testnet seeds or keys
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archives (the original drop is kept out of the tracked tree)
+*.zip
+
+# Internal-only notes (NEVER publish — private ecosystem, team, financials)
+docs-internal/
+
+# Pitch decks / docs are almost never meant for a public web repo
+*.pdf
+
+# Downloaded images (often saved from X/web) — keep out by default
+*.jfif
