@@ -30,3 +30,6 @@ docs-internal/
 
 # Downloaded images (often saved from X/web) — keep out by default
 *.jfif
+
+# Installers / binaries should never be in a web repo
+*.exe
