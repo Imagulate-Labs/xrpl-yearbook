@@ -8,7 +8,7 @@ The XRP Yearbook is a permanent, annual record of the **people, projects, art, e
 
 Not another social network. Not another NFT drop. A **timestamp of who was here.**
 
-> **▶ Live demo:** https://metalex505.github.io/xrpl-yearbook/ — built for the **Make Waves** XRPL hackathon, Class of 2026.
+> **▶ Live demo:** https://imagulate-labs.github.io/xrpl-yearbook/ — built for the **Make Waves** XRPL hackathon, Class of 2026.
 
 **What's in this repo**
 - **The site** (`web/`) — cinematic hero, your yearbook page, the roadmap, the Class Draw, merch.
