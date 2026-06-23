@@ -33,6 +33,16 @@ docs-internal/
 
 # Installers / binaries should never be in a web repo
 *.exe
+*.winmd
+
+# Brand assets folder: only images belong (auto-ignore any junk dropped in)
+XRP_Yearbook_Brand_Assets_PNG/*
+!XRP_Yearbook_Brand_Assets_PNG/*.png
+!XRP_Yearbook_Brand_Assets_PNG/*.jpg
+!XRP_Yearbook_Brand_Assets_PNG/*.jpeg
+!XRP_Yearbook_Brand_Assets_PNG/*.svg
+!XRP_Yearbook_Brand_Assets_PNG/*.webp
+!XRP_Yearbook_Brand_Assets_PNG/*.gif
 
 # Vercel CLI project linkage
 .vercel/
