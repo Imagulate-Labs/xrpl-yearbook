@@ -83,8 +83,11 @@ function initPagePad() {
     sig.clear();
   });
 
-  // reveal the pad when "Sign this page" is clicked
-  const reveal = () => document.getElementById("sign-inline").classList.add("is-open");
+  // reveal the pad when "Sign this page" is clicked, then size the canvas to its now-visible box
+  const reveal = () => {
+    document.getElementById("sign-inline").classList.add("is-open");
+    setTimeout(() => sig._resize(), 550);
+  };
   document.getElementById("revealSign").addEventListener("click", reveal);
   document.querySelectorAll('.nav-cta[href="#sign-inline"]').forEach((a) =>
     a.addEventListener("click", reveal)

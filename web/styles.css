@@ -143,7 +143,7 @@ em{font-style:italic}
   position:absolute; inset:0; margin:auto; width:auto; height:88%; object-fit:contain;
   opacity:.10; pointer-events:none; filter:saturate(1.3) brightness(1.5);
 }
-#sigCanvas{position:absolute; inset:0; width:100%; height:100%; touch-action:none}
+.pad canvas{position:absolute; inset:0; width:100%; height:100%; touch-action:none}
 .pad-placeholder{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   color:var(--parchment-dim); font-style:italic; letter-spacing:.1em; font-size:14px;

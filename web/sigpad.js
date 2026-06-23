@@ -32,11 +32,13 @@ class SignaturePad {
 
     this._resize();
     window.addEventListener("resize", () => this._resize());
+    window.addEventListener("orientationchange", () => setTimeout(() => this._resize(), 250));
     this._bind();
   }
 
   _resize() {
     const r = this.canvas.getBoundingClientRect();
+    if (!r.width || !r.height) return; // not visible yet (e.g. collapsed) — size on reveal
     const dpr = window.devicePixelRatio || 1;
     this.canvas.width = Math.round(r.width * dpr);
     this.canvas.height = Math.round(r.height * dpr);
@@ -50,7 +52,14 @@ class SignaturePad {
 
   _pos(e) {
     const r = this.canvas.getBoundingClientRect();
-    return { x: e.clientX - r.left, y: e.clientY - r.top };
+    if (!r.width || !r.height) return { x: 0, y: 0 };
+    // map the touch into canvas space using the LIVE box + buffer, so a stale
+    // size (iOS font reflow, rotation, reveal) can't push the ink off-center
+    const dpr = window.devicePixelRatio || 1;
+    return {
+      x: (e.clientX - r.left) * (this.canvas.width / (r.width * dpr)),
+      y: (e.clientY - r.top) * (this.canvas.height / (r.height * dpr)),
+    };
   }
 
   _snapshot() {
@@ -62,6 +71,7 @@ class SignaturePad {
 
   _bind() {
     const down = (e) => {
+      e.preventDefault();
       this.canvas.setPointerCapture?.(e.pointerId);
       this._snapshot();              // snapshot BEFORE the action, so undo can step back
       this.hasInk = true;
