@@ -1,0 +1,7 @@
+.git
+node_modules
+docs-internal
+*.zip
+*.exe
+*.pdf
+*.jfif
